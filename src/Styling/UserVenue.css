@@ -1,0 +1,26 @@
+.button-container-search-venues > button{
+    width: 40%;
+	margin-top: 5%;
+	display: inline-block;
+	padding: 18px 32px;
+	border: 0;
+	text-decoration: none;
+	border-radius: 15px;
+	background-color: rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(10px);
+	color: rgba(255, 255, 255, 0.8);
+	font-size: 17px;
+	letter-spacing: 2px;
+	cursor: pointer;
+	text-transform: uppercase;
+    margin-bottom: 100px;
+}
+.venue-card {
+	background-color: #524A4E;
+    color: #333333;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    /* border-radius: 20px; */
+	
+}

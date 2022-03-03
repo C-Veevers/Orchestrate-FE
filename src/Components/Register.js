@@ -41,7 +41,7 @@ export function Register() {
       <br></br>
       <div>
         <h1>Register</h1>
-        <p>Sign-up using the form below</p>
+        <h4>Sign-up using the form below</h4>
         <form className="uk-inline" id="myForm" onSubmit={handleSubmit}>
           <legend className="uk-legend">
             First name:

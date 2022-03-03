@@ -1,9 +1,9 @@
 body {
     text-align: center;
-
+    
 }
 
-.register-main {
+/* .register-main {
     padding: 10px;
     overflow: scroll;
     height: 100vh;
@@ -18,4 +18,85 @@ body {
 .register-main > p {
     color: #212121;
 }
+ */
 
+
+
+ .register-main form {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	color: rgba(255, 255, 255, 0.8);
+	height: 520px;
+	width: 68%;
+	background-color: rgba(255, 255, 255, 0.2);
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 48%;
+	border-radius: 10px;
+	backdrop-filter: blur(5px);
+	border: 2px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+	padding: 40px 35px;
+    overflow: scroll;
+    margin-top: 25px;
+}
+.register-main form * {
+	letter-spacing: 0.5px;
+	outline: none;
+	border: none;
+}
+.register-main label {
+	display: block;
+	font-size: 16px;
+	font-weight: 500;
+}
+.register-main input {
+	color: rgba(255, 255, 255, 0.8);
+	text-align: center;
+	height: 50px;
+	width: 100%;
+	border-radius: 8px;
+	background-color: rgba(166, 116, 88, 0.2);
+	border: 1px solid rgba(242, 242, 242, 0.8);
+	backdrop-filter: blur(10px);
+	margin-top: 8px;
+	font-size: 20px;
+	font-weight: 500;
+}
+.register-main button {
+	margin-top: 50px;
+
+	width: 50%;
+	background-color: rgba(255, 215, 0, 0.4);
+	border: 1px solid #f2f2f2cc;
+	color: rgba(255, 255, 255, 0.9);
+	padding: 10px 0;
+	font-size: 18px;
+	font-weight: 600;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.register-main h4 {
+	color: #333333;
+	font-size: 20px;
+    
+}
+.error {
+	color: crimson;
+	text-transform: capitalize;
+	font-weight: bold;
+}
+.register-main span {
+	color: rgba(255, 255, 255, 0.8);
+	padding: 0;
+	margin: 0;
+}
+.register-main a {
+	color: rgb(255, 215, 0);
+	text-decoration: underline;
+}
+.login-instruction-text {
+	margin-top: 10px;
+}

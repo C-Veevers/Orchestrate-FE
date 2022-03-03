@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const orchestrateApi = axios.create({
-  baseURL: "http://orchestrate-co.herokuapp.com/",
+  baseURL: "https://orchestrate-co.herokuapp.com/",
 });
 
 export const getSingleUser = (id = false) => {
@@ -183,7 +183,7 @@ export const postNewUser = (user) => {
         city: "Manchester",
         country: "England",
       },
-      avatar_url: `https://avatars.dicebear.com/api/adventurer/${user.username}.svg`,
+      avatar_url: `https://avatars.dicebear.com/api/initials/${user.username}.svg`,
       username: user.username,
       email: "steve@gmail.com",
       instruments: ["Harp"],

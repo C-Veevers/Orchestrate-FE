@@ -1,0 +1,16 @@
+.venue-info {
+    color: black;
+}
+
+.venue-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.venue-contain {
+    height: 200px;
+    width: 50%;
+    text-align: left;
+    margin-top: 15px;
+    padding-right: 15px;
+}

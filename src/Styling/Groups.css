@@ -1,0 +1,99 @@
+.display-groups {
+overflow: scroll;
+height: 70vh;
+width: 100vw;
+}
+
+.group-card {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  color: rgba(255, 255, 255, 0.8);
+  width: 68%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(8, 7, 16, 0.6);
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  margin-left: 29px;
+  list-style: none;
+}
+
+p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+#group-img {
+  width: 35%;
+  margin: 10px;
+  border-radius: 50%;
+}
+
+.group-logo {
+    border-radius: 50%;
+    height: 75px;
+    width: 75px;
+    object-fit: cover;
+}
+
+.logo-contact {
+  display: flex;
+  width: 100%;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+}
+
+.add-group-button {
+  margin: 20px 0px;
+	width: 50%;
+	background-color: rgba(255, 215, 0, 0.4);
+	border: 1px solid #f2f2f2cc;
+	color: rgba(255, 255, 255, 0.9);
+	padding: 10px 0;
+	font-size: 18px;
+	font-weight: 600;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.button-li {
+  margin: 0 auto;
+}
+
+.uk-accordion-content input {
+  color: grey;
+	text-align: center;
+	height: 50px;
+	width: 60%;
+	border-radius: 8px;
+	background-color: rgba(253, 253, 253, 0.8);
+	border: 1px solid rgba(242, 242, 242, 0.8);
+	margin-top: 8px;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.create-group-button {
+  margin: 20px 0px;
+	width: 50%;
+	background-color: rgba(255, 215, 0, 0.4);
+	border: 1px solid #f2f2f2cc;
+	color: rgba(255, 255, 255, 0.9);
+	padding: 10px 0;
+	font-size: 18px;
+	font-weight: 600;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.singlecard:active{
+ text-decoration: none;
+}

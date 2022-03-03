@@ -3,6 +3,7 @@ import io from 'socket.io-client'
 import { useEffect, useState, useContext } from "react"
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../Contexts/User";
+import { Header } from "../Components/Header"
 const EP = 'http://localhost:9090'
 let socket, selected
 
@@ -22,6 +23,7 @@ export const Messages = () => {
       }
    })
    return <>
+      <Header />
       <ul id="messages"></ul>
       <form id="form" action="">
          <input id="input" autocomplete="off" />

@@ -14,7 +14,7 @@ export function Login() {
   const [passwordInput, setPasswordInput] = useState("");
   const [username, setUsername] = useState("")
   const [status, setStatus] = useState('')
-  const [errorClass, setErrorClass] = useState('')
+  const [errorClass, setErrorClass] = useState('uk-margin-bottom')
 
   const navigate = useNavigate()
 
@@ -52,7 +52,6 @@ export function Login() {
     <>
       <Header />
       <div className="login-main">
-        <h2>Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="login-instruction-text">
             <p>Please enter your username and password</p>
@@ -66,7 +65,7 @@ export function Login() {
             <input onChange={handleChangePass} type="password" required></input>
           </div>
           <div className="button-cont">
-            <button className={errorClass} type="submit">Login</button>
+            <button className={`${errorClass} uk-margin-bottom` } type="submit">Login</button>
           </div>
           {
             (status === "Failed")

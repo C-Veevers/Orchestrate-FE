@@ -8,19 +8,24 @@ import { useContext } from "react";
 import { UserContext } from "../Contexts/User";
 
 export function Dashboard() {
+
     const { loggedUser, isLoggedIn } = useContext(UserContext)
+    console.log(loggedUser, '<<logged')
     const navigate = useNavigate()
     if (!isLoggedIn) {
-        return (<><h1>Unauthorised Access</h1><br /><p>Please <Link to="/login">Login</Link></p></>)
+        return (<><h1>Your session has timed out</h1><br /><p>Please <Link to="/login">Login</Link></p></>)
     } else {
         return (
-            <div>
-                <Header />
-                <h1>Dashboard</h1>
+            <>
+            <Header />
+            <div className="dashboard-component">
+                
+                <h1>Welcome to Orchestrate, {loggedUser.name.first}!</h1>
                 <UserGroups />
                 <Events />
                 <UserVenue />
             </div>
+            </>
         );
     }
 }

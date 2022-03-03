@@ -2,14 +2,13 @@ import { useState, useEffect, useContext } from "react";
 import { getAllVenues, postVenue } from "../Utils/api";
 import { Link } from "react-router-dom";
 import { Header } from "./Header";
-import CreateVenues from "./CreateVenues";
 import { UserContext } from "../Contexts/User";
+import "../Styling/Venues.css";
 
 export function Venues() {
   const { loggedUser } = useContext(UserContext);
   const [venues, setVenues] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
   const [refresh, setRefresh] = useState(false);
   const [newVenue, setNewVenue] = useState({
     name: "",
@@ -30,7 +29,11 @@ export function Venues() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     postVenue(newVenue).then((res) => {
+      setVenues((currVenues) => {
+        return [res[0], ...currVenues];
+      });
       setRefresh(!refresh);
       setNewVenue({
         name: "",
@@ -50,6 +53,8 @@ export function Venues() {
         },
       });
     });
+
+    //setAdded(true);
   };
 
   const nameHandler = (event) => {
@@ -69,120 +74,141 @@ export function Venues() {
   const numberHandler = (event) => {
     let newVenueNumber = event.target.value;
     let updatedVenue = { ...newVenue };
-    updatedVenue.location.street = newVenueNumber;
+    updatedVenue.location.number = newVenueNumber;
     setNewVenue(updatedVenue);
   };
   const postcodeHandler = (event) => {
     let newVenuePostcode = event.target.value;
     let updatedVenue = { ...newVenue };
-    updatedVenue.location.street = newVenuePostcode;
+    updatedVenue.location.postcode = newVenuePostcode;
     setNewVenue(updatedVenue);
   };
   const cityHandler = (event) => {
     let newVenueCity = event.target.value;
     let updatedVenue = { ...newVenue };
-    updatedVenue.location.street = newVenueCity;
+    updatedVenue.location.city = newVenueCity;
     setNewVenue(updatedVenue);
   };
   const countryHandler = (event) => {
     let newVenueCountry = event.target.value;
     let updatedVenue = { ...newVenue };
-    updatedVenue.location.street = newVenueCountry;
+    updatedVenue.location.country = newVenueCountry;
     setNewVenue(updatedVenue);
   };
-  useEffect(async () => {
-    const allVenues = await getAllVenues();
-    console.log(allVenues);
-    setVenues(allVenues);
+  useEffect(() => {
+    async function fetchData() {
+      const allVenues = await getAllVenues();
+      setVenues(allVenues);
+    }
+    fetchData();
+
     setLoading(true);
   }, [refresh]);
+  // added
 
   return (
     <>
       <Header />
       <ul data-uk-accordion>
-        <li className='uk-close'>
-          <a className='uk-accordion-title' href='#'>
-            Add Venue
-          </a>
+        <li className='uk-close button-li'>
+          <input
+            type='button'
+            className='uk-accordion-title add-venue-button button-li'
+            value='Add Venue'
+          />
+
           <div className='uk-accordion-content'>
-            <form onSubmit={handleSubmit}>
-              <h1>New Venue</h1>
+            {/* {added === false ? ( */}
+            <>
+              <form onSubmit={handleSubmit} className='uk-form-horizontal'>
+                <h1>New Venue</h1>
+                <div>
+                  <input
+                    type='text'
+                    placeholder="Venue Name"
+                    onChange={nameHandler}
+                    value={newVenue.name}
+                  />
+                </div>
+                <div>
+                  <div>
+                    <input
+                      placeholder="House number"
+                      type='text'
+                      onChange={numberHandler}
+                      value={newVenue.location.number}
+                    />
+                  </div>
+                  <div>
+                    <input
+                    placeholder="Street"
+                      type='text'
+                      onChange={streetHandler}
+                      value={newVenue.location.street}
+                    />
+                  </div>
+                  <div>
+                    <input
+                      placeholder="Postcode"
+                      type='text'
+                      onChange={postcodeHandler}
+                      value={newVenue.location.postcode}
+                    />
+                  </div>
+                  <div>
+                    <input
+                      placeholder="City"
+                      type='text'
+                      onChange={cityHandler}
+                      value={newVenue.location.city}
+                    />
+                  </div>
+                  <div>
+                    <input
+                      placeholder="Country"
+                      type='text'
+                      onChange={countryHandler}
+                      value={newVenue.location.country}
+                    />
+                  </div>
+                </div>
+                <button className="create-venue-button">create</button>
+              </form>
+            </>
+            )
+            {/* : (
               <div>
-                <label>Venue Name : </label>
-                <input
-                  type='text'
-                  onChange={nameHandler}
-                  value={newVenue.name}
-                />
+                <h3>Venue Added!!!</h3>
               </div>
-              <div>
-                <div>
-                  <label>Street : </label>
-                  <input
-                    type='text'
-                    onChange={streetHandler}
-                    value={newVenue.location.street}
-                  />
-                </div>
-                <div>
-                  <label>Number : </label>
-                  <input
-                    type='text'
-                    onChange={numberHandler}
-                    value={newVenue.location.number}
-                  />
-                </div>
-                <div>
-                  <label>Postcode : </label>
-                  <input
-                    type='text'
-                    onChange={postcodeHandler}
-                    value={newVenue.location.postcode}
-                  />
-                </div>
-                <div>
-                  <label>City : </label>
-                  <input
-                    type='text'
-                    onChange={cityHandler}
-                    value={newVenue.location.city}
-                  />
-                </div>
-                <div>
-                  <label>Country : </label>
-                  <input
-                    type='text'
-                    onChange={countryHandler}
-                    value={newVenue.location.country}
-                  />
-                </div>
-              </div>
-              <button>create</button>
-            </form>
+            )} */}
           </div>
         </li>
       </ul>
 
       {loading ? (
-        <div>
+        <div className='display-groups'>
           <ul>
             {venues.map((venue) => {
               return (
-                <li key={venue.name}>
-                  <Link to={`/venues/${venue._id}`}>
+                <>
+                <li key={venue.name} className='group-card'>
+                  <Link to={`/venues/${venue._id}`} className='link'>
                     <h1>{venue.name}</h1>
-                    <img
-                      src={`https://avatars.dicebear.com/api/initials/${venue.name}.svg`}
-                      style={{
-                        height: "200px",
-                        width: "200px",
-                        "border-radius": "50%",
-                      }}
-                    />
-                    <p>Location: {venue.location.city}</p>
+                      <img className="venue-image"
+                        src={venue.avatar_url}
+                        alt={venue.name}
+                      />
+                    <div className='uk-flex uk-flex-around'>
+                      <p>Location: {venue.location.city}</p>
+                    </div>
+                    <br />
+                    {venue.contact.name ===
+                    `${loggedUser.name.first} ${loggedUser.name.last}` ? (
+                      <button className="manage-venue-button">Manage Venue</button>
+                    ) : null}
                   </Link>
                 </li>
+                </>
               );
             })}
           </ul>
