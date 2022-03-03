@@ -1,0 +1,47 @@
+.welcome-main {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.welcome-main button {
+	width: 40%;
+	margin-top: 20%;
+	display: inline-block;
+	padding: 18px 32px;
+	border: 0;
+	text-decoration: none;
+	border-radius: 15px;
+	background-color: rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(10px);
+	color: rgba(255, 255, 255, 0.8);
+	font-size: 17px;
+	letter-spacing: 2px;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+.welcome-buttons {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+
+#video {
+	object-fit: cover;
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	z-index: -1;
+	top: 0;
+	left: 0;
+}
+
+#logo {
+	max-width: 80%;
+	max-height: 50%;
+	background-color: rgba(255, 255, 255, 0.1);
+	border: 5px solid rgba(255, 255, 255, 0.1);
+	border-radius: 50%;
+}

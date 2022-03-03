@@ -1,0 +1,37 @@
+.header {
+    background-color: rgb(87, 79, 79);
+    color: #fefefe;
+    display: flex ;
+    flex-direction: column;
+    height: 75px;
+    max-width: 1500px;
+    margin: 0 auto;
+    
+}
+
+.nav-container {
+    /* border: 1px solid orange; */
+    height: 100%;
+    display:flex;
+    align-items: flex-end;
+
+}
+.title {
+    padding-top: 25px;
+}
+.status {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.nav-link {
+    background: none;
+    border: none;
+    color: orange;
+    padding: 0 10px;
+
+}
+
+.nav-link:hover{
+    color: #fefefe;
+}

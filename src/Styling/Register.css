@@ -1,0 +1,21 @@
+body {
+    text-align: center;
+
+}
+
+.register-main {
+    padding: 10px;
+    overflow: scroll;
+    height: 100vh;
+    overflow-x: hidden;
+    color: #212121;
+}
+
+.register-main > h1 {
+    color: #212121;
+}
+
+.register-main > p {
+    color: #212121;
+}
+
