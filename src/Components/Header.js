@@ -36,11 +36,6 @@ export function Header() {
               <Link to='/account' className='link-container'>
                 <button className='nav-link'>Account</button>
               </Link>
-              <div>
-                <Link to='/messages' className='link-container'>
-                  <button className='nav-link'>Messages</button>
-                </Link>
-              </div>
               <div className='status'>
                 <Link to='/login' className='link-container'>
                   <button
