@@ -12,7 +12,6 @@ import { Venues } from "./Components/Venues";
 import { Groups } from "./Components/Groups";
 import { Account } from "./Components/Account";
 import { Events } from "./Components/Events";
-import { Messages } from "./Components/Messages";
 import { SingleGroup } from "./Components/SingleGroup";
 
 function App() {
@@ -41,7 +40,6 @@ function App() {
             <Route path='/groups' element={<Groups />} />
             <Route path='/groups/:_id' element={<SingleGroup />} />
             <Route path='/events' element={<Events />} />
-            <Route path='/messages' element={<Messages />} />
             <Route path='/account' element={<Account />} />
           </Routes>
         </div>
