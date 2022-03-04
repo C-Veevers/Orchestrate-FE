@@ -59,7 +59,7 @@ export function Account() {
             </div>
             <div className='uk-flex-column uk-width-1-1 uk-flex-around uk-margin-medium-top'>
               <div>
-                <img alt="user image" src={loggedUser.avatar_url} className='account-img' />
+                <img alt="user" src={loggedUser.avatar_url} className='account-img' />
               </div>
               <section className='account-form'>
                 {editing ? (
