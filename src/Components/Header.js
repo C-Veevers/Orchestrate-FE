@@ -5,7 +5,7 @@ import { useContext, useEffect } from "react";
 import logo from "../Images/logo.png";
 
 export function Header() {
-  const { isLoggedIn, setLoggedIn, loggedUser, setUser } =
+  const { isLoggedIn, setLoggedIn, setUser } =
     useContext(UserContext);
 
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ export function Header() {
     if (!isLoggedIn) {
       setUser({});
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, setUser]);
 
   return (
     <>

@@ -1,6 +1,6 @@
 import "../Styling/UserVenue.css";
 import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../Contexts/User";
 import { getUserVenues } from "../Utils/api";
 import bridgewater from "../Images/bridgewater.jpeg"
@@ -12,7 +12,6 @@ export function UserVenue() {
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
-  const [newVenue, setNewVenue] = useState([]);
   const handleClick = () => {
     navigate("/venues");
   };
@@ -20,13 +19,12 @@ export function UserVenue() {
   useEffect(() => {
     getUserVenues(loggedUser._id)
       .then((res) => {
-        setNewVenue(res);
         setLoading(true);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [loggedUser._id]);
 
   return (
     <div>
@@ -60,43 +58,41 @@ export function UserVenue() {
 
             {/* hard coded for demo video */}
             <ul className="uk-slider-items uk-child-width-1-1@s uk-child-width-1-2@m uk-grid">
-            <li className="venue-card">
-            <p>The Bridgewater Hall</p>
-            <img src={bridgewater} alt="bridgewater_hall_image" />
-            <p>Lower Mosley Street, Manchester</p>
-            <p>Contact: 0161 907 9000</p>
+              <li className="venue-card">
+                <p>The Bridgewater Hall</p>
+                <img src={bridgewater} alt="bridgewater_hall_image" />
+                <p>Lower Mosley Street, Manchester</p>
+                <p>Contact: 0161 907 9000</p>
               </li>
               <li className="venue-card">
-            <p>Stoller Hall</p>
-            <img src={stoller} alt="stoller_hall_image" />
-            <p>Hunts Bank, Manchester</p>
-            <p>Contact: 0333 130 0967</p>
+                <p>Stoller Hall</p>
+                <img src={stoller} alt="stoller_hall_image" />
+                <p>Hunts Bank, Manchester</p>
+                <p>Contact: 0333 130 0967</p>
               </li>
-              </ul>
-            <a
+            </ul>
+            <button
               className="uk-position-center-left uk-position-small uk-hidden-hover"
-              href="#"
               data-uk-slidenav-previous
               data-uk-slider-item="previous"
-            ></a>
-            <a
+            ></button>
+            <button
               className="uk-position-center-right uk-position-small uk-hidden-hover"
-              href="#"
               data-uk-slidenav-next
               data-uk-slider-item="next"
-            ></a>
+            ></button>
           </div>
         ) : null}
       </div>
       <p>Looking for a venue?</p>
       <div className="button-container-search-venues">
-      <button
-        className="uk-button uk-button-default"
-        type="button"
-        onClick={handleClick}
-      >
-        Search Venues
-      </button>
+        <button
+          className="uk-button uk-button-default"
+          type="button"
+          onClick={handleClick}
+        >
+          Search Venues
+        </button>
       </div>
       <br></br>
       <br></br>

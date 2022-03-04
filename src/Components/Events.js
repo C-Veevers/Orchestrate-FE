@@ -93,18 +93,18 @@ export function Events() {
           )}
         </ul>
 
-        <a
+        <button
           class="uk-position-center-left uk-position-small uk-hidden-hover"
           href="#"
           uk-slidenav-previous
           uk-slider-item="previous"
-        ></a>
-        <a
+        ></button>
+        <button
           class="uk-position-center-right uk-position-small uk-hidden-hover"
           href="#"
           uk-slidenav-next
           uk-slider-item="next"
-        ></a>
+        ></button>
       </div>
       <ul data-uk-accordion>
         <li className="add-events">
@@ -152,7 +152,7 @@ export function Events() {
                       >
                         Add Event
                       </button>
-                     
+
                       {error ? (
                         <>
                           <br />

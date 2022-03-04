@@ -11,7 +11,6 @@ import { SingleVenue } from "./Components/SingleVenue";
 import { Venues } from "./Components/Venues";
 import { Groups } from "./Components/Groups";
 import { Account } from "./Components/Account";
-import { Footer } from "./Components/Footer";
 import { Events } from "./Components/Events";
 import { Messages } from "./Components/Messages";
 import { SingleGroup } from "./Components/SingleGroup";

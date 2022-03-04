@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import grouplogo from "../Images/group.jpeg";
 import "../Styling/Groups.css";
 import { getAllGroups } from "../Utils/api";
 import { Header } from "./Header";
@@ -155,7 +154,7 @@ export function Groups() {
                         </div>
                         <div className='logo-contact'>
                           <div id='group-img'>
-                            <img
+                            <img alt={group.name}
                               className='group-logo'
                               src={group.avatar_url}
                             />

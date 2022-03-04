@@ -3,7 +3,6 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../Contexts/User";
 import { getUserGroups } from "../Utils/api";
-import { Header } from "./Header";
 
 export function UserGroups() {
   const [groups, setGroups] = useState([]);
@@ -25,9 +24,9 @@ export function UserGroups() {
   return (
     <div>
       <div className="button-container-find-groups">
-      <button className="uk-button uk-button-default" type='button' onClick={handleClick}>
-        Find your Orchestra
-      </button>
+        <button className="uk-button uk-button-default" type='button' onClick={handleClick}>
+          Find your Orchestra
+        </button>
       </div>
       {loading ? (
         <ul>

@@ -5,19 +5,16 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../Contexts/User";
 import { Header } from "../Components/Header"
 const EP = 'http://localhost:9090'
-let socket, selected
+let socket,
 
 
 export const Messages = () => {
    const navigate = useNavigate()
    const { loggedUser, isLoggedIn } = useContext(UserContext)
-   const [socketCon, setSocketCon] = useState(false)
    useEffect(() => {
       if (isLoggedIn) {
          socket = io(EP)
          socket.emit("setup", loggedUser)
-         console.log(loggedUser._id)
-         socket.on("connection", () => setSocketCon(true))
       } else {
          navigate('/login')
       }

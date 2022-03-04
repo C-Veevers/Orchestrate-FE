@@ -1,7 +1,6 @@
 import "../Styling/Register.css";
 import { postNewUser } from "../Utils/api";
-import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 export function Register() {
@@ -31,10 +30,6 @@ export function Register() {
       }
     });
   };
-
-  const handleClick = () => {
-    navigate('/login')
-  }
 
   return (
     <div className="register-main">

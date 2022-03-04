@@ -16,7 +16,6 @@ export function SingleVenue() {
     from: null,
     to: null,
   });
-  const [error, setError] = useState(false);
 
   useEffect(() => {
     getVenueById(_id).then((res) => {
@@ -69,12 +68,6 @@ export function SingleVenue() {
                             type='button'>
                             Book date
                           </button>
-                          {error ? (
-                            <>
-                              <br />
-                              Please Select a date range
-                            </>
-                          ) : null}
                         </p>
                       </>
                     )}
@@ -85,7 +78,7 @@ export function SingleVenue() {
           </ul>
           <h1>{singleVenue.name}</h1>
           <div className='venue-info'>
-            <img src={singleVenue.map} />
+            <img src={singleVenue.map} alt={singleVenue.name} />
             <div className='venue-details'>
               <div className='venue-contain'>
                 <ul>

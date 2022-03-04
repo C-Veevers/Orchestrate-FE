@@ -9,7 +9,7 @@ import { Header } from "./Header";
 
 
 export function Login() {
-  const { setUser, isLoggedIn, setLoggedIn } = useContext(UserContext)
+  const { setUser, setLoggedIn } = useContext(UserContext)
   const [usernameInput, setUsernameInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [username, setUsername] = useState("")
@@ -65,7 +65,7 @@ export function Login() {
             <input onChange={handleChangePass} type="password" required></input>
           </div>
           <div className="button-cont">
-            <button className={`${errorClass} uk-margin-bottom` } type="submit">Login</button>
+            <button className={`${errorClass} uk-margin-bottom`} type="submit">Login</button>
           </div>
           {
             (status === "Failed")

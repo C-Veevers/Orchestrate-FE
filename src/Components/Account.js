@@ -23,7 +23,7 @@ export function Account() {
   const deleteInstrument = (instrument) => {
     let updatedUser = { ...loggedUser };
     const newInsts = updatedUser.instruments.filter(
-      (insts) => insts != instrument
+      (insts) => insts !== instrument
     );
     updatedUser.instruments = newInsts;
     setUser(updatedUser);
@@ -39,7 +39,7 @@ export function Account() {
     } else {
       navigate("/login");
     }
-  }, [editing, refresh, loggedUser]);
+  }, [editing, refresh, loggedUser, isLoggedIn, navigate]);
   return (
     <>
       {isLoggedIn ? (
@@ -59,7 +59,7 @@ export function Account() {
             </div>
             <div className='uk-flex-column uk-width-1-1 uk-flex-around uk-margin-medium-top'>
               <div>
-                <img src={loggedUser.avatar_url} className='account-img' />
+                <img alt="user image" src={loggedUser.avatar_url} className='account-img' />
               </div>
               <section className='account-form'>
                 {editing ? (
