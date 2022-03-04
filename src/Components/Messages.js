@@ -8,7 +8,7 @@ const EP = 'http://localhost:9090'
 let socket,
 
 
-export const Messages = () => {
+export function Messages() {
    const navigate = useNavigate()
    const { loggedUser, isLoggedIn } = useContext(UserContext)
    useEffect(() => {
